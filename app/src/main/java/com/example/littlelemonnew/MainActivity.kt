@@ -13,13 +13,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.littlelemonnew.ui.theme.LittleLemonNewTheme
 
 class MainActivity : ComponentActivity() {
+    private val sharedPreferences by lazy {
+        getSharedPreferences("Little Lemon", MODE_PRIVATE)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             LittleLemonNewTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    Navigation()
                 }
             }
         }
